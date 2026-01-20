@@ -46,8 +46,8 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
           html, body {
             height: 100%;
             overflow: hidden;
-            background: #0a0a0a;
-            color: #fff;
+            background: #f3f4f6;
+            color: #111827;
             font-family: system-ui, -apple-system, sans-serif;
           }
           .container {
@@ -57,22 +57,22 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
           }
           .sidebar {
             width: 200px;
-            background: #111;
-            border-right: 1px solid #333;
+            background: #fff;
+            border-right: 1px solid #e5e7eb;
             overflow-y: auto;
             flex-shrink: 0;
           }
           .back-link {
             display: block;
             padding: 12px 16px;
-            color: #888;
+            color: #6b7280;
             text-decoration: none;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #e5e7eb;
             font-size: 14px;
           }
           .back-link:hover {
-            color: #fff;
-            background: #222;
+            color: #111827;
+            background: #f9fafb;
           }
           .song-list {
             list-style: none;
@@ -80,18 +80,18 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
           .song-item {
             padding: 12px 16px;
             cursor: pointer;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid #f3f4f6;
             transition: background 0.15s;
           }
           .song-item:hover {
-            background: #1a1a1a;
+            background: #f9fafb;
           }
           .song-item.active {
-            background: #1e3a5f;
+            background: #dbeafe;
             border-left: 3px solid #3b82f6;
           }
           .song-number {
-            color: #666;
+            color: #9ca3af;
             font-size: 12px;
             font-family: monospace;
           }
@@ -99,9 +99,10 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
             font-weight: 600;
             font-size: 14px;
             margin-top: 2px;
+            color: #111827;
           }
           .song-artist {
-            color: #888;
+            color: #6b7280;
             font-size: 12px;
           }
           .main {
@@ -112,15 +113,16 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
           }
           .header {
             padding: 16px 24px;
-            border-bottom: 1px solid #333;
-            background: #111;
+            border-bottom: 1px solid #e5e7eb;
+            background: #fff;
           }
           .header-title {
             font-size: 24px;
             font-weight: 700;
+            color: #111827;
           }
           .header-artist {
-            color: #888;
+            color: #6b7280;
             font-size: 16px;
           }
           .chords {
@@ -131,13 +133,14 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
             font-size: 18px;
             line-height: 1.6;
             white-space: pre-wrap;
-            color: #e0e0e0;
+            color: #374151;
+            background: #fff;
           }
           .nav-hint {
             padding: 12px 24px;
-            background: #111;
-            border-top: 1px solid #333;
-            color: #666;
+            background: #fff;
+            border-top: 1px solid #e5e7eb;
+            color: #9ca3af;
             font-size: 12px;
             text-align: center;
           }
@@ -146,7 +149,7 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
             align-items: center;
             justify-content: center;
             height: 100%;
-            color: #666;
+            color: #9ca3af;
             font-size: 18px;
           }
           @media (max-width: 640px) {

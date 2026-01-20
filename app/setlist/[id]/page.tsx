@@ -28,7 +28,8 @@ export default async function SetlistPage({ params }: SetlistPageProps) {
       .from('songs')
       .select('*')
       .eq('user_id', user.id)
-      .order('title'),
+      .order('artist', { ascending: true })
+      .order('title', { ascending: true }),
   ])
 
   if (setlistResult.error || !setlistResult.data) {
@@ -40,10 +41,10 @@ export default async function SetlistPage({ params }: SetlistPageProps) {
   const allSongs = allSongsResult.data || []
 
   return (
-    <div className="min-h-screen bg-gray-900 p-6">
+    <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-2xl mx-auto">
         <div className="flex items-center justify-between mb-8">
-          <Link href="/home" className="text-gray-400 hover:text-white">
+          <Link href="/home" className="text-gray-600 hover:text-gray-900">
             &larr; Back
           </Link>
           <Link

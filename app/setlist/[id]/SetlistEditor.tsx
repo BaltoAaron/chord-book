@@ -174,12 +174,12 @@ export default function SetlistEditor({
   return (
     <div className="space-y-6">
       {error && (
-        <div className="p-3 rounded bg-red-900 text-red-200">{error}</div>
+        <div className="p-3 rounded bg-red-100 text-red-700">{error}</div>
       )}
 
       {/* Setlist Name */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-300">
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700">
           Setlist Name
         </label>
         <input
@@ -188,36 +188,36 @@ export default function SetlistEditor({
           value={name}
           onChange={(e) => setName(e.target.value)}
           onBlur={handleNameChange}
-          className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
       </div>
 
       {/* Songs in Setlist */}
       <div>
-        <h2 className="text-lg font-semibold text-white mb-4">
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">
           Songs in Setlist ({setlistSongs.length})
         </h2>
         {setlistSongs.length === 0 ? (
-          <p className="text-gray-400">No songs in this setlist yet</p>
+          <p className="text-gray-500">No songs in this setlist yet</p>
         ) : (
           <ul className="space-y-2">
             {setlistSongs.map((ss, index) => (
               <li
                 key={ss.id}
-                className="flex items-center justify-between p-3 bg-gray-800 rounded-lg"
+                className="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm border border-gray-200"
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-gray-500 font-mono w-6">{index + 1}</span>
+                  <span className="text-gray-400 font-mono w-6">{index + 1}</span>
                   <div>
-                    <p className="text-white font-medium">{ss.song.title}</p>
-                    <p className="text-sm text-gray-400">{ss.song.artist}</p>
+                    <p className="text-gray-900 font-medium">{ss.song.artist} - {ss.song.title}</p>
+                    {/*<p className="text-sm text-gray-500">{ss.song.artist}</p>*/}
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => handleMoveUp(index)}
                     disabled={index === 0 || loading}
-                    className="p-1 text-gray-400 hover:text-white disabled:opacity-30"
+                    className="p-1 text-gray-400 hover:text-gray-900 disabled:opacity-30"
                     title="Move up"
                   >
                     &#9650;
@@ -225,7 +225,7 @@ export default function SetlistEditor({
                   <button
                     onClick={() => handleMoveDown(index)}
                     disabled={index === setlistSongs.length - 1 || loading}
-                    className="p-1 text-gray-400 hover:text-white disabled:opacity-30"
+                    className="p-1 text-gray-400 hover:text-gray-900 disabled:opacity-30"
                     title="Move down"
                   >
                     &#9660;
@@ -248,16 +248,16 @@ export default function SetlistEditor({
       {/* Add Songs */}
       {availableSongs.length > 0 && (
         <div>
-          <h2 className="text-lg font-semibold text-white mb-4">Add Songs</h2>
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Add Songs</h2>
           <ul className="space-y-2">
             {availableSongs.map((song) => (
               <li
                 key={song.id}
-                className="flex items-center justify-between p-3 bg-gray-800 rounded-lg"
+                className="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm border border-gray-200"
               >
                 <div>
-                  <p className="text-white font-medium">{song.title}</p>
-                  <p className="text-sm text-gray-400">{song.artist}</p>
+                  <p className="text-gray-900 font-medium">{song.artist} - {song.title}</p>
+                  {/*<p className="text-sm text-gray-500">{song.artist}</p>*/}
                 </div>
                 <button
                   onClick={() => handleAddSong(song.id)}
@@ -273,7 +273,7 @@ export default function SetlistEditor({
       )}
 
       {/* Delete Setlist */}
-      <div className="pt-6 border-t border-gray-700">
+      <div className="pt-6 border-t border-gray-200">
         <button
           onClick={handleDelete}
           disabled={loading}

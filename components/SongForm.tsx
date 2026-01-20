@@ -70,11 +70,11 @@ export default function SongForm({ song }: SongFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {error && (
-        <div className="p-3 rounded bg-red-900 text-red-200">{error}</div>
+        <div className="p-3 rounded bg-red-100 text-red-700">{error}</div>
       )}
 
       <div>
-        <label htmlFor="artist" className="block text-sm font-medium text-gray-300">
+        <label htmlFor="artist" className="block text-sm font-medium text-gray-700">
           Artist
         </label>
         <input
@@ -83,13 +83,13 @@ export default function SongForm({ song }: SongFormProps) {
           required
           value={artist}
           onChange={(e) => setArtist(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           placeholder="Artist name"
         />
       </div>
 
       <div>
-        <label htmlFor="title" className="block text-sm font-medium text-gray-300">
+        <label htmlFor="title" className="block text-sm font-medium text-gray-700">
           Title
         </label>
         <input
@@ -98,13 +98,13 @@ export default function SongForm({ song }: SongFormProps) {
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           placeholder="Song title"
         />
       </div>
 
       <div>
-        <label htmlFor="chords" className="block text-sm font-medium text-gray-300">
+        <label htmlFor="chords" className="block text-sm font-medium text-gray-700">
           Chords
         </label>
         <textarea
@@ -113,7 +113,7 @@ export default function SongForm({ song }: SongFormProps) {
           value={chords}
           onChange={(e) => setChords(e.target.value)}
           rows={15}
-          className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
           placeholder="Enter your chord chart here..."
         />
       </div>

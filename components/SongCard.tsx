@@ -11,9 +11,9 @@ export default function SongCard({ song }: SongCardProps) {
   return (
     <Link
       href={`/song/${song.id}`}
-      className="block p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+      className="block p-4 bg-white rounded-lg hover:bg-gray-50 transition-colors shadow-sm border border-gray-200"
     >
-      <h3 className="font-semibold text-white">{song.artist} - {song.title}</h3>
+      <h3 className="font-semibold text-gray-900">{song.artist} - {song.title}</h3>
       {/* <p className="text-sm text-gray-400">{song.artist}</p> */}
     </Link>
   )

@@ -12,10 +12,10 @@ export default function SetlistCard({ setlist, songCount }: SetlistCardProps) {
   return (
     <Link
       href={`/setlist/${setlist.id}`}
-      className="block p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+      className="block p-4 bg-white rounded-lg hover:bg-gray-50 transition-colors shadow-sm border border-gray-200"
     >
-      <h3 className="font-semibold text-white">{setlist.name}</h3>
-      <p className="text-sm text-gray-400">
+      <h3 className="font-semibold text-gray-900">{setlist.name}</h3>
+      <p className="text-sm text-gray-500">
         {songCount} {songCount === 1 ? 'song' : 'songs'}
       </p>
     </Link>
