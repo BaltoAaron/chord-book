@@ -17,12 +17,13 @@ export default async function HomePage() {
       .from('songs')
       .select('*')
       .eq('user_id', user.id)
-      .order('updated_at', { ascending: false }),
+      .order('artist', { ascending: true })
+      .order('title', { ascending: true }),
     supabase
       .from('setlists')
       .select('*')
       .eq('user_id', user.id)
-      .order('updated_at', { ascending: false }),
+      .order('name', { ascending: true }),
     supabase
       .from('setlist_songs')
       .select('setlist_id'),
