@@ -50,7 +50,7 @@ export default async function SetlistPage({ params }: SetlistPageProps) {
             href={`/setlist/${params.id}/play`}
             className="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
           >
-            Play Setlist
+            Display Setlist
           </Link>
         </div>
         <SetlistEditor
