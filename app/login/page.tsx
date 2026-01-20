@@ -44,7 +44,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
+      <div className="max-w-md w-full space-y-1 p-8 bg-white rounded-lg shadow-md">
         <div>
           <img src="/images/main_logo.png" alt="Chord Book" />
           <p className="mt-2 text-center text-gray-500">
@@ -52,7 +52,7 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-1 space-y-6" onSubmit={handleSubmit}>
           {error && (
             <div className={`p-3 rounded ${error.includes('Check your email') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
               {error}

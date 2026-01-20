@@ -42,9 +42,13 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-4xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-gray-900"><img src="/images/header_logo.png" alt="Chord Book" width={300} height={300} /></h1>  
-          <LogoutButton />
+        <div className="relative mb-8">
+          <div className="flex justify-center">
+            <img src="/images/header_logo.png" alt="Chord Book" width={300} height={300} />
+          </div>
+          <div className="absolute top-0 right-0">
+            <LogoutButton />
+          </div>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2">
