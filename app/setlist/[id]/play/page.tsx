@@ -151,32 +151,31 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
 
             {/* Section 2: Song Index */}
             <div className="song-index">
-              {songs.map((song: any) => (
-                <div key={song.id} className="song-index-item">
-                  <a href={`#song-${song.id}`}>{song.artist} - {song.title}</a>
-                </div>
-              ))}
+              {songs.map((song: any) => {
+                const firstLetter = song.artist.charAt(0).toUpperCase()
+                const isFirstForLetter = letterToSongId[firstLetter] === song.id
+
+                return (
+                  <div key={song.id} id={isFirstForLetter ? `letter-${firstLetter}` : undefined} className="song-index-item">
+                    <a href={`#song-${song.id}`}>{song.artist} - {song.title}</a>
+                  </div>
+                )
+              })}
             </div>
 
             {/* Section 3: Song Contents */}
-            {songs.map((song: any, index: number) => {
-              const firstLetter = song.artist.charAt(0).toUpperCase()
-              const isFirstForLetter = letterToSongId[firstLetter] === song.id
-
-              return (
-                <div
-                  key={song.id}
-                  id={`song-${song.id}`}
-                  className="song-content"
-                >
-                  {isFirstForLetter && <div id={`letter-${firstLetter}`} />}
-                  <div className="song-header">
-                    {song.artist} - {song.title}
-                  </div>
-                  <div className={"song-chords"}>{song.chords}</div>
+            {songs.map((song: any) => (
+              <div
+                key={song.id}
+                id={`song-${song.id}`}
+                className="song-content"
+              >
+                <div className="song-header">
+                  {song.artist} - {song.title}
                 </div>
-              )
-            })}
+                <div className="song-chords">{song.chords}</div>
+              </div>
+            ))}
           </>
         )}
       </body>
