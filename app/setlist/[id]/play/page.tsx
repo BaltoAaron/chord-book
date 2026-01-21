@@ -81,7 +81,7 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
           .alphabet {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 12px;
             margin-bottom: 30px;
             padding-bottom: 20px;
             border-bottom: 1px solid #ddd;
@@ -103,7 +103,7 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
             border-bottom: 1px solid #ddd;
           }
           .song-index-item {
-            margin-bottom: 4px;
+            margin-bottom: 1px;
           }
           .song-index-item a {
             color: #111;
@@ -121,7 +121,7 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
             margin-bottom: 16px;
           }
           .song-chords {
-            line-height: 1.6;
+            line-height: 1;
             white-space: pre-wrap;
             color: #333;
           }
@@ -173,7 +173,7 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
                   <div className="song-header">
                     {song.artist} - {song.title}
                   </div>
-                  <div className="song-chords">{song.chords}</div>
+                  <div className={"song-chords"}>{song.chords}</div>
                 </div>
               )
             })}
