@@ -63,7 +63,8 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
           body {
             background: #fff;
             color: #111;
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 22px;
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
@@ -89,14 +90,12 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
             color: #0066cc;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
           }
           .alphabet a:hover {
             text-decoration: underline;
           }
           .alphabet span {
             color: #ccc;
-            font-size: 16px;
           }
           .song-index {
             margin-bottom: 40px;
@@ -119,12 +118,9 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
           }
           .song-header {
             font-weight: 600;
-            font-size: 18px;
             margin-bottom: 16px;
           }
           .song-chords {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 16px;
             line-height: 1.6;
             white-space: pre-wrap;
             color: #333;
