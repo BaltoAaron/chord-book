@@ -48,136 +48,82 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{setlist.name}</title>
         <style dangerouslySetInnerHTML={{ __html: `
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
-          html {
-            scroll-behavior: smooth;
-          }
           body {
-            background: #fff;
-            color: #111;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier';
             font-size: 22px;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
           }
-          .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #666;
+          h2 {font-family: 'Courier';font-size: 50px;}
+          #content {
+            padding-left: 50px;
+          }
+          a:link {
+            color: #000000;
+            background-color: transparent;
             text-decoration: none;
           }
-          .back-link:hover {
-            color: #111;
-          }
-          .alphabet {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-          }
-          .alphabet a {
-            color: #0066cc;
+
+          a:visited {
+            color: #000000;
+            background-color: transparent;
             text-decoration: none;
-            font-weight: 600;
-          }
-          .alphabet a:hover {
-            text-decoration: underline;
-          }
-          .alphabet span {
-            color: #ccc;
-          }
-          .song-index {
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-          }
-          .song-index-item {
-            margin-bottom: 1px;
-          }
-          .song-index-item a {
-            color: #111;
-            text-decoration: none;
-          }
-          .song-index-item a:hover {
-            text-decoration: underline;
-          }
-          .song-content {
-            margin-bottom: 50px;
-            padding-top: 10px;
-          }
-          .song-header {
-            font-weight: 600;
-            margin-bottom: 16px;
-          }
-          .song-chords {
-            line-height: 1;
-            white-space: pre-wrap;
-            color: #333;
-          }
-          .empty {
-            color: #666;
-            font-style: italic;
           }
         `}} />
+
       </head>
       <body>
-        <a href={`/setlist/${params.id}`} className="back-link">&larr; Back to Edit</a>
+      <div id="content">
+      <pre>
+        <a href={`/setlist/${params.id}`} className="back-link">&larr; Back to Edit</a> 
+        <br></br><br></br>
 
-        {songs.length === 0 ? (
-          <p className="empty">No songs in this setlist</p>
-        ) : (
-          <>
-            {/* Section 1: Alphabet Header */}
-            <div className="alphabet">
-              {alphabet.map((letter) => (
-                letterToSongId[letter] ? (
-                  <a key={letter} href={`#letter-${letter}`}>{letter}</a>
-                ) : (
-                  <span key={letter}>{letter}</span>
-                )
-              ))}
+        {/* Section 1: Alphabet Header */}
+        <a href="#toca">A</a>  <a href="#tocb">B</a>  <a href="#tocc">C</a>  <a href="#tocd">D</a>  <a href="#toce">E</a>  <a href="#tocf">F</a>  <a href="#tocg">G</a>  <a href="#toch">H</a>  <a href="#toci">I</a>  <a href="#tocj">J</a>  <a href="#tock">K</a>  <a href="#tocl">L</a>  <a href="#tocm">M</a>  <a href="#tocn">N</a>  <a href="#toco">O</a>  <a href="#tocp">P</a>  <a href="#tocq">Q</a>  <a href="#tocr">R</a>  <a href="#tocs">S</a>  <a href="#toct">T</a>  <a href="#tocu">U</a>  <a href="#tocv">V</a>  <a href="#tocw">W</a>  <a href="#tocx">X</a>  <a href="#tocy">Y</a>  <a href="#tocz">Z</a>
+        <br></br><br></br>
+
+        {/* Section 2: Song Index */}
+        <div id="toc4"></div><a href="#sng3-s">4 Deuces             - WPLJ</a>
+        {songs.map((song: any) => {
+          const firstLetter = song.artist.charAt(0).toUpperCase()
+          const isFirstForLetter = letterToSongId[firstLetter] === song.id
+
+          return (
+            <div key={song.id} id={isFirstForLetter ? `letter-${firstLetter}` : undefined} className="song-index-item">
+              <a href={`#song-${song.id}`}>{song.artist} - {song.title}</a>
             </div>
+          )
+        })}
+        <br></br>
 
-            {/* Section 2: Song Index */}
-            <div className="song-index">
-              {songs.map((song: any) => {
-                const firstLetter = song.artist.charAt(0).toUpperCase()
-                const isFirstForLetter = letterToSongId[firstLetter] === song.id
+        {/* Section 2: Song Index */}
+        <div id="sng3-s"></div>
+        <b>4 Deuces - WPLJ - C</b> 
+        <br></br><br></br>
+        <div id="sng3">
+        blues in C (walking)
+        </div>
+        <br></br>
 
-                return (
-                  <div key={song.id} id={isFirstForLetter ? `letter-${firstLetter}` : undefined} className="song-index-item">
-                    <a href={`#song-${song.id}`}>{song.artist} - {song.title}</a>
-                  </div>
-                )
-              })}
+        {songs.map((song: any) => (
+          <div
+            key={song.id}
+            id={`song-${song.id}`}
+            className="song-content"
+          >
+            <div className="song-header">
+              <b>{song.artist} - {song.title}</b>
             </div>
+            <a href="#">top</a>
+            <br></br>
+            <div className="song-chords">{song.chords}</div>
+            <br></br><br></br>
+          </div>
+        ))}
 
-            {/* Section 3: Song Contents */}
-            {songs.map((song: any) => (
-              <div
-                key={song.id}
-                id={`song-${song.id}`}
-                className="song-content"
-              >
-                <div className="song-header">
-                  {song.artist} - {song.title}
-                </div>
-                <div className="song-chords">{song.chords}</div>
-              </div>
-            ))}
-          </>
-        )}
+
+      </pre>      
+      </div>
       </body>
     </html>
   )
