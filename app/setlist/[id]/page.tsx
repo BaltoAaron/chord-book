@@ -57,9 +57,9 @@ export default async function SetlistPage({ params }: SetlistPageProps) {
             <Link
               href={`/setlist/${params.id}/settings`}
               className="p-2 text-gray-600 hover:text-gray-900"
-              title="Setlist Settings"
+              title="Settings"
             >
-              &#9881;
+              <img src="/images/gear.png" alt="Chord Book" width={30} height={30} />
             </Link>
           </div>
         </div>
