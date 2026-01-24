@@ -47,12 +47,21 @@ export default async function SetlistPage({ params }: SetlistPageProps) {
           <Link href="/home" className="text-gray-600 hover:text-gray-900">
             &larr; Back
           </Link>
-          <Link
-            href={`/setlist/${params.id}/play`}
-            className="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
-          >
-            Display Setlist
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link
+              href={`/setlist/${params.id}/play`}
+              className="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
+            >
+              Display Setlist
+            </Link>
+            <Link
+              href={`/setlist/${params.id}/settings`}
+              className="p-2 text-gray-600 hover:text-gray-900"
+              title="Setlist Settings"
+            >
+              &#9881;
+            </Link>
+          </div>
         </div>
         <SetlistEditor
           setlist={setlist}

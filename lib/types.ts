@@ -9,10 +9,15 @@ export interface Song {
   updated_at: string
 }
 
+export interface SetlistSettings {
+  alphabetical_order: boolean
+}
+
 export interface Setlist {
   id: string
   user_id: string
   name: string
+  settings: SetlistSettings | null
   created_at: string
   updated_at: string
 }
