@@ -12,6 +12,7 @@ interface SongFormProps {
 export default function SongForm({ song }: SongFormProps) {
   const [artist, setArtist] = useState(song?.artist || '')
   const [title, setTitle] = useState(song?.title || '')
+  const [key, setKey] = useState(song?.key || '')
   const [chords, setChords] = useState(song?.chords || '')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -28,7 +29,7 @@ export default function SongForm({ song }: SongFormProps) {
       if (isEditing) {
         const { error } = await supabase
           .from('songs')
-          .update({ artist, title, chords, updated_at: new Date().toISOString() })
+          .update({ artist, title, key: key || null, chords, updated_at: new Date().toISOString() })
           .eq('id', song.id)
         if (error) throw error
       } else {
@@ -37,7 +38,7 @@ export default function SongForm({ song }: SongFormProps) {
 
         const { error } = await supabase
           .from('songs')
-          .insert({ artist, title, chords, user_id: user.id })
+          .insert({ artist, title, key: key || null, chords, user_id: user.id })
         if (error) throw error
       }
 
@@ -100,6 +101,20 @@ export default function SongForm({ song }: SongFormProps) {
           onChange={(e) => setTitle(e.target.value)}
           className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           placeholder="Song title"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="key" className="block text-sm font-medium text-gray-700">
+          Key
+        </label>
+        <input
+          id="key"
+          type="text"
+          value={key}
+          onChange={(e) => setKey(e.target.value)}
+          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          placeholder="e.g. C, G, Am"
         />
       </div>
 

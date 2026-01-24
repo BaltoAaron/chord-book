@@ -70,3 +70,9 @@ Required in `.env.local`:
 NEXT_PUBLIC_SUPABASE_URL=your-project-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ```
+
+## Change Tracking
+
+When making changes to this project, add an entry to `PROGRESS.md` with:
+- Date/timestamp in the format: ### YYYY-MM-DD HH:MM:SS - (update title)
+- Short 1-2 sentence description of the change

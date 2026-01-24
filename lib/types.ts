@@ -3,6 +3,7 @@ export interface Song {
   user_id: string
   artist: string
   title: string
+  key: string | null
   chords: string
   created_at: string
   updated_at: string

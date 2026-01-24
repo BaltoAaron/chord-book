@@ -7,6 +7,7 @@ CREATE TABLE songs (
   user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,
   artist TEXT NOT NULL,
   title TEXT NOT NULL,
+  key TEXT,
   chords TEXT NOT NULL,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
