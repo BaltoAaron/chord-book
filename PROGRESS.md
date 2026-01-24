@@ -4,6 +4,9 @@ This file tracks changes made to the ChordBook project.
 
 ## Change Log
 
+### 2026-01-24 17:35:00 - Fix Setlist Settings Cache Invalidation
+- Added router.refresh() to SettingsForm alphabetical order toggle so SetlistEditor updates when navigating back after settings changes.
+
 ### 2026-01-24 17:30:00 - Fix Home Page Cache Invalidation
 - Added router.refresh() calls to SetlistEditor mutation handlers (add, remove, move up/down) so the Home page updates when navigating back after setlist changes.
 

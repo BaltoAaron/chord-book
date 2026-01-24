@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Setlist } from '@/lib/types'
 
@@ -14,6 +15,7 @@ export default function SettingsForm({ setlist }: SettingsFormProps) {
   )
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
+  const router = useRouter()
 
   const handleToggle = async () => {
     const newValue = !alphabeticalOrder
@@ -38,6 +40,7 @@ export default function SettingsForm({ setlist }: SettingsFormProps) {
     } else {
       setMessage({ type: 'success', text: 'Setting saved' })
       setTimeout(() => setMessage(null), 2000)
+      router.refresh()
     }
   }
 
