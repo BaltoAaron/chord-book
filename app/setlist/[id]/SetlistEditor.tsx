@@ -23,6 +23,17 @@ export default function SetlistEditor({
   const router = useRouter()
   const supabase = createClient()
 
+  const isAlphabetical = setlist.settings?.alphabetical_order ?? false
+
+  // Sort songs alphabetically if setting is enabled, otherwise use position order
+  const displayedSongs = isAlphabetical
+    ? [...setlistSongs].sort((a, b) => {
+        const artistCompare = a.song.artist.localeCompare(b.song.artist)
+        if (artistCompare !== 0) return artistCompare
+        return a.song.title.localeCompare(b.song.title)
+      })
+    : setlistSongs
+
   // Songs not yet in the setlist
   const availableSongs = allSongs.filter(
     (song) => !setlistSongs.some((ss) => ss.song_id === song.id)
@@ -53,6 +64,7 @@ export default function SetlistEditor({
 
       if (error) throw error
       setSetlistSongs([...setlistSongs, data])
+      router.refresh()
     } catch (err: any) {
       setError(err.message)
     } finally {
@@ -82,6 +94,7 @@ export default function SetlistEditor({
         )
       )
       setSetlistSongs(updated.map((ss, index) => ({ ...ss, position: index })))
+      router.refresh()
     } catch (err: any) {
       setError(err.message)
     } finally {
@@ -113,6 +126,7 @@ export default function SetlistEditor({
       setSetlistSongs(
         newSongs.map((ss, i) => ({ ...ss, position: i }))
       )
+      router.refresh()
     } catch (err: any) {
       setError(err.message)
     } finally {
@@ -144,6 +158,7 @@ export default function SetlistEditor({
       setSetlistSongs(
         newSongs.map((ss, i) => ({ ...ss, position: i }))
       )
+      router.refresh()
     } catch (err: any) {
       setError(err.message)
     } finally {
@@ -201,7 +216,7 @@ export default function SetlistEditor({
           <p className="text-gray-500">No songs in this setlist yet</p>
         ) : (
           <ul className="space-y-2">
-            {setlistSongs.map((ss, index) => (
+            {displayedSongs.map((ss, index) => (
               <li
                 key={ss.id}
                 className="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm border border-gray-200"
@@ -214,22 +229,26 @@ export default function SetlistEditor({
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => handleMoveUp(index)}
-                    disabled={index === 0 || loading}
-                    className="p-1 text-gray-400 hover:text-gray-900 disabled:opacity-30"
-                    title="Move up"
-                  >
-                    &#9650;
-                  </button>
-                  <button
-                    onClick={() => handleMoveDown(index)}
-                    disabled={index === setlistSongs.length - 1 || loading}
-                    className="p-1 text-gray-400 hover:text-gray-900 disabled:opacity-30"
-                    title="Move down"
-                  >
-                    &#9660;
-                  </button>
+                  {!isAlphabetical && (
+                    <>
+                      <button
+                        onClick={() => handleMoveUp(index)}
+                        disabled={index === 0 || loading}
+                        className="p-1 text-gray-400 hover:text-gray-900 disabled:opacity-30"
+                        title="Move up"
+                      >
+                        &#9650;
+                      </button>
+                      <button
+                        onClick={() => handleMoveDown(index)}
+                        disabled={index === setlistSongs.length - 1 || loading}
+                        className="p-1 text-gray-400 hover:text-gray-900 disabled:opacity-30"
+                        title="Move down"
+                      >
+                        &#9660;
+                      </button>
+                    </>
+                  )}
                   <button
                     onClick={() => handleRemoveSong(ss.id)}
                     disabled={loading}
