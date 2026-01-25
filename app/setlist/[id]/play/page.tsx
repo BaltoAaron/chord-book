@@ -78,8 +78,16 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
         <a href={`/setlist/${params.id}`} className="back-link">&larr; Back to Edit</a> 
         <br></br><br></br>
 
-        {/* Section 1: Alphabet Header */}
-        <a href="#toca">A</a>  <a href="#tocb">B</a>  <a href="#tocc">C</a>  <a href="#tocd">D</a>  <a href="#toce">E</a>  <a href="#tocf">F</a>  <a href="#tocg">G</a>  <a href="#toch">H</a>  <a href="#toci">I</a>  <a href="#tocj">J</a>  <a href="#tock">K</a>  <a href="#tocl">L</a>  <a href="#tocm">M</a>  <a href="#tocn">N</a>  <a href="#toco">O</a>  <a href="#tocp">P</a>  <a href="#tocq">Q</a>  <a href="#tocr">R</a>  <a href="#tocs">S</a>  <a href="#toct">T</a>  <a href="#tocu">U</a>  <a href="#tocv">V</a>  <a href="#tocw">W</a>  <a href="#tocx">X</a>  <a href="#tocy">Y</a>  <a href="#tocz">Z</a>
+        {/* Section 1: Alphabet Header or Ordered Setlist label */}
+        {setlist.settings?.alphabetical_order ? (
+          <>
+            <span>Set: {`${setlist.name} (Alphabetical)`}</span>
+            <br></br><br></br>
+            <a href="#toca">A</a>  <a href="#tocb">B</a>  <a href="#tocc">C</a>  <a href="#tocd">D</a>  <a href="#toce">E</a>  <a href="#tocf">F</a>  <a href="#tocg">G</a>  <a href="#toch">H</a>  <a href="#toci">I</a>  <a href="#tocj">J</a>  <a href="#tock">K</a>  <a href="#tocl">L</a>  <a href="#tocm">M</a>  <a href="#tocn">N</a>  <a href="#toco">O</a>  <a href="#tocp">P</a>  <a href="#tocq">Q</a>  <a href="#tocr">R</a>  <a href="#tocs">S</a>  <a href="#toct">T</a>  <a href="#tocu">U</a>  <a href="#tocv">V</a>  <a href="#tocw">W</a>  <a href="#tocx">X</a>  <a href="#tocy">Y</a>  <a href="#tocz">Z</a>
+          </>
+        ) : (
+          <span>Set: {`${setlist.name} (Ordered)`}</span>
+        )}
         <br></br><br></br>
 
         {/* Section 2: Song Index */}
@@ -89,7 +97,7 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
           const isFirstForLetter = letterToSongId[firstLetter] === song.id
 
           return (
-            <div key={song.id} id={isFirstForLetter ? `letter-${firstLetter}` : undefined} className="song-index-item">
+            <div key={song.id} id={`toc${song.artist.charAt(0).toLowerCase()}`} className="song-index-item">
               <a href={`#song-${song.id}`}>{song.artist} - {song.title}</a>
             </div>
           )

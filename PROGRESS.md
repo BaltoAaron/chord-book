@@ -4,6 +4,9 @@ This file tracks changes made to the ChordBook project.
 
 ## Change Log
 
+### 2026-01-25 10:00:00 - Conditional Alphabet Header in Play Mode
+- Updated setlist play page to conditionally show Alphabet Header when alphabetical_order is enabled, or "Ordered Setlist" text when disabled.
+
 ### 2026-01-24 17:35:00 - Fix Setlist Settings Cache Invalidation
 - Added router.refresh() to SettingsForm alphabetical order toggle so SetlistEditor updates when navigating back after settings changes.
 
@@ -25,5 +28,3 @@ This file tracks changes made to the ChordBook project.
 ### 2026-01-24 - Initial Setup
 - Created PROGRESS.md file to track project changes
 - Updated CLAUDE.md with instructions to maintain this change log
-
-### Temp update
