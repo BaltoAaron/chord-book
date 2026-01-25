@@ -4,6 +4,9 @@ This file tracks changes made to the ChordBook project.
 
 ## Change Log
 
+### 2026-01-25 10:14:32 - Conditional Song Ordering in Play Mode - Made by ClaudeCode
+- Updated play page to conditionally sort songs based on alphabetical_order setting. When enabled, songs sort by artist then title; when disabled, songs display in position order.
+
 ### 2026-01-25 10:00:00 - Conditional Alphabet Header in Play Mode
 - Updated setlist play page to conditionally show Alphabet Header when alphabetical_order is enabled, or "Ordered Setlist" text when disabled.
 

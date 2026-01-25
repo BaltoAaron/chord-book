@@ -26,13 +26,18 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
   }
 
   const setlist = setlistResult.data
-  const songs = (setlistSongsResult.data || [])
-    .map((ss: any) => ss.song)
-    .sort((a: any, b: any) => {
-      const artistCompare = a.artist.localeCompare(b.artist)
-      if (artistCompare !== 0) return artistCompare
-      return a.title.localeCompare(b.title)
-    })
+  const setlistSongs = setlistSongsResult.data || []
+
+  // Conditionally sort: alphabetically if setting enabled, otherwise keep position order
+  const songs = setlist.settings?.alphabetical_order
+    ? setlistSongs
+        .map((ss: any) => ss.song)
+        .sort((a: any, b: any) => {
+          const artistCompare = a.artist.localeCompare(b.artist)
+          if (artistCompare !== 0) return artistCompare
+          return a.title.localeCompare(b.title)
+        })
+    : setlistSongs.map((ss: any) => ss.song)  // Already ordered by position from query
 
   // Build alphabet index - find first song for each letter
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
