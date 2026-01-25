@@ -4,6 +4,9 @@ This file tracks changes made to the ChordBook project.
 
 ## Change Log
 
+### 2026-01-25 11:42:17 - Align Song Index with Padded Artist Names - Made by ClaudeCode
+- Replaced "XXX" placeholder in Song Index with `.padEnd(40, ' ')` so the "-" character aligns at position 40 for all songs.
+
 ### 2026-01-25 10:14:32 - Conditional Song Ordering in Play Mode - Made by ClaudeCode
 - Updated play page to conditionally sort songs based on alphabetical_order setting. When enabled, songs sort by artist then title; when disabled, songs display in position order.
 

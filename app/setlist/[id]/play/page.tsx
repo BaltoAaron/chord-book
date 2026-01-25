@@ -86,38 +86,29 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
         {/* Section 1: Alphabet Header or Ordered Setlist label */}
         {setlist.settings?.alphabetical_order ? (
           <>
-            <span>Set: {`${setlist.name} (Alphabetical)`}</span>
+            <b>Set: {`${setlist.name} (Alphabetical)`}</b>
             <br></br><br></br>
             <a href="#toca">A</a>  <a href="#tocb">B</a>  <a href="#tocc">C</a>  <a href="#tocd">D</a>  <a href="#toce">E</a>  <a href="#tocf">F</a>  <a href="#tocg">G</a>  <a href="#toch">H</a>  <a href="#toci">I</a>  <a href="#tocj">J</a>  <a href="#tock">K</a>  <a href="#tocl">L</a>  <a href="#tocm">M</a>  <a href="#tocn">N</a>  <a href="#toco">O</a>  <a href="#tocp">P</a>  <a href="#tocq">Q</a>  <a href="#tocr">R</a>  <a href="#tocs">S</a>  <a href="#toct">T</a>  <a href="#tocu">U</a>  <a href="#tocv">V</a>  <a href="#tocw">W</a>  <a href="#tocx">X</a>  <a href="#tocy">Y</a>  <a href="#tocz">Z</a>
           </>
         ) : (
-          <span>Set: {`${setlist.name} (Ordered)`}</span>
+          <b>Set: {`${setlist.name} (Ordered)`}</b>
         )}
-        <br></br><br></br>
+        <br></br><br></br><br></br>
 
         {/* Section 2: Song Index */}
-        <div id="toc4"></div><a href="#sng3-s">4 Deuces             - WPLJ</a>
         {songs.map((song: any) => {
           const firstLetter = song.artist.charAt(0).toUpperCase()
           const isFirstForLetter = letterToSongId[firstLetter] === song.id
 
           return (
             <div key={song.id} id={`toc${song.artist.charAt(0).toLowerCase()}`} className="song-index-item">
-              <a href={`#song-${song.id}`}>{song.artist} - {song.title}</a>
+              <a href={`#song-${song.id}`}>{song.artist.padEnd(22, ' ')}- {song.title}</a>
             </div>
           )
         })}
-        <br></br>
+        <br></br><br></br><br></br>
 
         {/* Section 2: Song Index */}
-        <div id="sng3-s"></div>
-        <b>4 Deuces - WPLJ - C</b> 
-        <br></br><br></br>
-        <div id="sng3">
-        blues in C (walking)
-        </div>
-        <br></br>
-
         {songs.map((song: any) => (
           <div
             key={song.id}
