@@ -4,6 +4,9 @@ This file tracks changes made to the ChordBook project.
 
 ## Change Log
 
+### 2026-01-25 16:23:47 - Set Favicon for App - Made by ClaudeCode
+- Added favicon configuration to app/layout.tsx metadata using the existing CB logo at /images/favicon.png.
+
 ### 2026-01-25 16:06:16 - Add transUp Button to Play Page - Made by ClaudeCode
 - Replaced XXX placeholder with a button that calls `transUp('ABC')` on each song in the play page.
 
