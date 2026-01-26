@@ -9,4 +9,27 @@ Update the setlist\[id]\page.tsx and SetlistEditor.tsx files to take the setlist
 
 ###
 Update `setlist/[id]/play/page.tsx` to conditionally order the songs in the Section 2: Song Index based on the `alphabetical_order` setting.
-         
+Update setlist/play/page.tsx to replace XXX with a button that calls transUp fucntion and passes the parameter 'ABC'.
+
+### Holding Area
+
+<span dangerouslySetInnerHTML={{ __html: `<button onclick="window.transpUp('songchords-${song.id}')">^</button>` }} />
+
+<script dangerouslySetInnerHTML={{ __html: `
+    window.transpUp = function(songDiv) {
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("G#", "X");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("G", "G#");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("F#", "G");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("F", "F#");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("E", "F");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("D#", "E");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("D", "D#");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("C#", "D");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("C", "C#");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("B", "C");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("A#", "B");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("A", "A#");
+    document.getElementById(songDiv).innerHTML = document.getElementById(songDiv).innerHTML.replaceAll("X", "A");
+    }
+
+`}} />

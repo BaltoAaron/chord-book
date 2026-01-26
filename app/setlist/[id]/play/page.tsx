@@ -75,7 +75,6 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
             text-decoration: none;
           }
         `}} />
-
       </head>
       <body>
       <div id="content">
@@ -86,16 +85,17 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
         {/* Section 1: Alphabet Header or Ordered Setlist label */}
         {setlist.settings?.alphabetical_order ? (
           <>
-            <b>Set: {`${setlist.name} (Alphabetical)`}</b>
+            <b>*** Set: {`${setlist.name} (Alphabetical)`}</b>
             <br></br><br></br>
             <a href="#toca">A</a>  <a href="#tocb">B</a>  <a href="#tocc">C</a>  <a href="#tocd">D</a>  <a href="#toce">E</a>  <a href="#tocf">F</a>  <a href="#tocg">G</a>  <a href="#toch">H</a>  <a href="#toci">I</a>  <a href="#tocj">J</a>  <a href="#tock">K</a>  <a href="#tocl">L</a>  <a href="#tocm">M</a>  <a href="#tocn">N</a>  <a href="#toco">O</a>  <a href="#tocp">P</a>  <a href="#tocq">Q</a>  <a href="#tocr">R</a>  <a href="#tocs">S</a>  <a href="#toct">T</a>  <a href="#tocu">U</a>  <a href="#tocv">V</a>  <a href="#tocw">W</a>  <a href="#tocx">X</a>  <a href="#tocy">Y</a>  <a href="#tocz">Z</a>
           </>
         ) : (
           <b>Set: {`${setlist.name} (Ordered)`}</b>
         )}
-        <br></br><br></br><br></br>
+        <br></br><br></br>
 
         {/* Section 2: Song Index */}
+        <b>*** Songs:</b>
         {songs.map((song: any) => {
           const firstLetter = song.artist.charAt(0).toUpperCase()
           const isFirstForLetter = letterToSongId[firstLetter] === song.id
@@ -106,21 +106,17 @@ export default async function PlaySetlistPage({ params }: PlaySetlistPageProps) 
             </div>
           )
         })}
-        <br></br><br></br><br></br>
+        <br></br><br></br>
 
         {/* Section 2: Song Index */}
+        <b>*** Chords:</b>
         {songs.map((song: any) => (
-          <div
-            key={song.id}
-            id={`song-${song.id}`}
-            className="song-content"
-          >
-            <div className="song-header">
-              <b>{song.artist} - {song.title}</b>
-            </div>
+          <div key={song.id} id={`song-${song.id}`} className="song-content">
+            <div className="song-header"><b>{song.artist} - {song.title} - {song.key}</b></div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="#">top</a>
             <br></br>
-            <div className="song-chords">{song.chords}</div>
+            <div id={`songchords-${song.id}`}className="song-chords">{song.chords}</div>
             <br></br><br></br>
           </div>
         ))}

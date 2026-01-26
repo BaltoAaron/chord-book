@@ -4,6 +4,12 @@ This file tracks changes made to the ChordBook project.
 
 ## Change Log
 
+### 2026-01-25 16:06:16 - Add transUp Button to Play Page - Made by ClaudeCode
+- Replaced XXX placeholder with a button that calls `transUp('ABC')` on each song in the play page.
+
+### 2026-01-25 15:54:37 - Add transUp Script Function - Made by ClaudeCode
+- Added empty `transUp()` function in a script tag to the play page for future transpose functionality.
+
 ### 2026-01-25 11:42:17 - Align Song Index with Padded Artist Names - Made by ClaudeCode
 - Replaced "XXX" placeholder in Song Index with `.padEnd(40, ' ')` so the "-" character aligns at position 40 for all songs.
 
