@@ -128,7 +128,7 @@ export default function SongForm({ song }: SongFormProps) {
           value={chords}
           onChange={(e) => setChords(e.target.value)}
           rows={15}
-          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+          className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-lg"
           placeholder="Enter your chord chart here..."
         />
       </div>
