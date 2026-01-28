@@ -16,6 +16,7 @@ export default function SongForm({ song }: SongFormProps) {
   const [chords, setChords] = useState(song?.chords || '')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [showHelp, setShowHelp] = useState(false)
   const router = useRouter()
   const supabase = createClient()
   const isEditing = !!song
@@ -69,6 +70,7 @@ export default function SongForm({ song }: SongFormProps) {
   }
 
   return (
+    <>
     <form onSubmit={handleSubmit} className="space-y-6">
       {error && (
         <div className="p-3 rounded bg-red-100 text-red-700">{error}</div>
@@ -119,9 +121,18 @@ export default function SongForm({ song }: SongFormProps) {
       </div>
 
       <div>
-        <label htmlFor="chords" className="block text-sm font-medium text-gray-700">
-          Chords
-        </label>
+        <div className="flex items-center justify-between">
+          <label htmlFor="chords" className="block text-sm font-medium text-gray-700">
+            Chords
+          </label>
+          <button
+            type="button"
+            onClick={() => setShowHelp(true)}
+            className="text-blue-600 hover:text-blue-800 font-bold text-lg"
+          >
+            ?
+          </button>
+        </div>
         <textarea
           id="chords"
           required
@@ -154,5 +165,23 @@ export default function SongForm({ song }: SongFormProps) {
         )}
       </div>
     </form>
+
+    {showHelp && (
+      <div
+        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        onClick={() => setShowHelp(false)}
+      >
+        <div className="bg-white p-4 rounded-lg max-w-2xl max-h-[90vh] overflow-auto">
+          <img src="/images/Example Popup.png" alt="Chords Help" />
+          <button
+            onClick={() => setShowHelp(false)}
+            className="mt-4 w-full py-2 bg-gray-200 rounded hover:bg-gray-300"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    )}
+    </>
   )
 }

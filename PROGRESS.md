@@ -4,6 +4,9 @@ This file tracks changes made to the ChordBook project.
 
 ## Change Log
 
+### 2026-01-27 12:08:43 - Add Help Popup to Chords Field - Made by ClaudeCode
+- Added a "?" help icon next to the Chords label in SongForm. Clicking it opens a modal popup displaying the Example Popup.png image.
+
 ### 2026-01-27 11:42:18 - Update Setlist Page Header Layout - Made by ClaudeCode
 - Reorganized setlist edit page header: "Edit Setlist" h1 on left, "Back" link on right top, "Display Setlist" button and settings gear below on right.
 
