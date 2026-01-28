@@ -4,6 +4,9 @@ This file tracks changes made to the ChordBook project.
 
 ## Change Log
 
+### 2026-01-27 11:42:18 - Update Setlist Page Header Layout - Made by ClaudeCode
+- Reorganized setlist edit page header: "Edit Setlist" h1 on left, "Back" link on right top, "Display Setlist" button and settings gear below on right.
+
 ### 2026-01-25 16:23:47 - Set Favicon for App - Made by ClaudeCode
 - Added favicon configuration to app/layout.tsx metadata using the existing CB logo at /images/favicon.png.
 

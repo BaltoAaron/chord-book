@@ -43,24 +43,27 @@ export default async function SetlistPage({ params }: SetlistPageProps) {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-2xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
-          <Link href="/home" className="text-gray-600 hover:text-gray-900">
-            &larr; Back
-          </Link>
-          <div className="flex items-center gap-2">
-            <Link
-              href={`/setlist/${params.id}/play`}
-              className="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
-            >
-              Display Setlist
+        <div className="flex justify-between items-start mb-8">
+          <h1 className="text-2xl font-bold text-gray-900">Edit Setlist</h1>
+          <div className="flex flex-col items-end gap-2">
+            <Link href="/home" className="text-gray-600 hover:text-gray-900">
+              &larr; Back
             </Link>
-            <Link
-              href={`/setlist/${params.id}/settings`}
-              className="p-2 text-gray-600 hover:text-gray-900"
-              title="Settings"
-            >
-              <img src="/images/gear.png" alt="Chord Book" width={30} height={30} />
-            </Link>
+            <div className="flex items-center gap-2">
+              <Link
+                href={`/setlist/${params.id}/play`}
+                className="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
+              >
+                Display Setlist
+              </Link>
+              <Link
+                href={`/setlist/${params.id}/settings`}
+                className="p-2 text-gray-600 hover:text-gray-900"
+                title="Settings"
+              >
+                <img src="/images/gear.png" alt="Chord Book" width={30} height={30} />
+              </Link>
+            </div>
           </div>
         </div>
         <SetlistEditor

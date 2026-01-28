@@ -29,7 +29,7 @@ export default async function EditSongPage({ params }: EditSongPageProps) {
             href="/home"
             className="text-gray-600 hover:text-gray-900"
           >
-            Back
+            Cancel
           </Link>
         </div>
         <SongForm song={song} />
